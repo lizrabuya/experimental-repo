@@ -1,3 +1,21 @@
 steps:
-  - label: ":hammer:"
-    command: echo "This is experimental"
+  - label: ":buildkite::octocat::kite:"
+   if: build.source == 'api'
+    command:  
+      - buildkite-agent annotate "Welcome! 👋💚 This build was triggered from an api! The Kite is flying!"
+  - label: ":buildkite::octocat:"
+   if: build.source == 'webhook'
+    command:  
+      - buildkite-agent annotate "Welcome! 👋💚 This build was triggered from a gh webhook."
+  - label: ":buildkite:"
+   if: build.source == 'ui'
+    command:  
+      - buildkite-agent annotate "Welcome! 👋💚 This build was triggered from the UI."
+  - label: ":buildkite::arrow_right::buildkite:"
+   if: build.source == 'trigger_job'
+    command:  
+      - buildkite-agent annotate "Welcome! 👋💚 This build was triggered from the another buildkite job." 
+  - label: ":buildkite::clock1:"
+   if: build.source == 'schedule'
+    command:  
+      - buildkite-agent annotate "Welcome! 👋💚 This build was triggered from a scheduled build."    
