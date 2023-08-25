@@ -1,3 +1,6 @@
+agents:
+  queue: test
+  
 steps:
   - label: ":buildkite::octocat::kite:"
    if: build.source == 'api'
