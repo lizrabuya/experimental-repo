@@ -5,10 +5,10 @@ steps:
   - label: ":buildkite::octocat::kite:"
     if: build.source == 'api'
     command: buildkite-agent annotate "Welcome! 👋💚 This build was triggered from an api! The Kite is flying!"
-  - label: ":buildkite::octocat:"
+  - label: ":buildkite::github:"
     if: build.source == 'webhook'
     command: buildkite-agent annotate "Welcome! 👋💚 This build was triggered from a gh webhook."
-  - label: ":buildkite:"
+  - label: ":buildkite::wave:"
     if: build.source == 'ui'
     command: buildkite-agent annotate "Welcome! 👋💚 This build was triggered from the UI."
   - label: ":buildkite::arrow_right::buildkite:"
